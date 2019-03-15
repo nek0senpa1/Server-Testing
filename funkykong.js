@@ -14,8 +14,8 @@ async function put(thing) {
       .first();
 }
 
-function pull(thing) {
-    deebee('widgets').where({id: thing}).delete()
+async function pull(thing) {
+    const bob = await deebee('widgets').where({id: thing}).delete();
 
     return deebee('widgets');
 

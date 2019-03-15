@@ -33,7 +33,7 @@ server.post('/widgets/post', (rec, rez) => {
     })
 })
 
-server.delete('widgets/delete/:id', (rec, rez) => {
+server.delete('/widgets/delete/:id', (rec, rez) => {
     const ids = rec.params.id;
     console.log(ids);
     superwidget.pull(ids)
@@ -41,7 +41,7 @@ server.delete('widgets/delete/:id', (rec, rez) => {
         rez.status(202).json(stuff)
     })
     .catch(err => {
-        rez.status(501).json(err)
+        rez.status(501).json('something is very wrong somewhere')
     })
 })
 
